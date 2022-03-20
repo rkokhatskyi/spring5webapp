@@ -11,6 +11,7 @@ public class Publisher {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    private String name;
     private String address;
     private String city;
     private String state;
@@ -23,7 +24,8 @@ public class Publisher {
     public Publisher() {
     }
 
-    public Publisher(String address, String city, String state, String zip) {
+    public Publisher(String name, String address, String city, String state, String zip) {
+        this.name = name;
         this.address = address;
         this.city = city;
         this.state = state;
@@ -36,6 +38,14 @@ public class Publisher {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getAddress() {
@@ -86,6 +96,7 @@ public class Publisher {
         Publisher publisher = (Publisher) o;
 
         if (id != null ? !id.equals(publisher.id) : publisher.id != null) return false;
+        if (name != null ? !name.equals(publisher.name) : publisher.name != null) return false;
         if (address != null ? !address.equals(publisher.address) : publisher.address != null) return false;
         if (city != null ? !city.equals(publisher.city) : publisher.city != null) return false;
         if (state != null ? !state.equals(publisher.state) : publisher.state != null) return false;
@@ -95,6 +106,7 @@ public class Publisher {
     @Override
     public int hashCode() {
         int result = id != null ? id.hashCode() : 0;
+        result = 31 * result + (name != null ? name.hashCode() : 0);
         result = 31 * result + (address != null ? address.hashCode() : 0);
         result = 31 * result + (city != null ? city.hashCode() : 0);
         result = 31 * result + (state != null ? state.hashCode() : 0);
@@ -106,6 +118,7 @@ public class Publisher {
     public String toString() {
         return "Publisher{" +
                 "id=" + id +
+                ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
                 ", city='" + city + '\'' +
                 ", state='" + state + '\'' +

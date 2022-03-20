@@ -23,7 +23,7 @@ public class BootStrapData implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        Publisher publisher = new Publisher("Address line", "New York", "New York", "1234");
+        Publisher publisher = new Publisher("Super Publisher","Address line", "New York", "New York", "1234");
         publisherRepository.save(publisher);
 
         Author eric = new Author("Eric", "Novel");
